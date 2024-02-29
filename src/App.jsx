@@ -1,35 +1,63 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { useState, useRef, useEffect } from "react";
+import styles from "./App.module.css";
+import gsap from "gsap";
+import { Flip } from "gsap/Flip";
+import { CustomEase } from "gsap/CustomEase";
+import img1 from "./assets/1.jpeg";
+import img2 from "./assets/2.jpeg";
+import img3 from "./assets/3.jpeg";
+import img4 from "./assets/4.jpeg";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [btnContent, setBtnContent] = useState("Explore Ideas");
+
+  useEffect(() => {
+    (async () => {
+      const LocomotiveScroll = (await import("locomotive-scroll")).default;
+
+      const locomotiveScroll = new LocomotiveScroll();
+    })();
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className={styles.main}>
+      {/* navigation */}
+      <div className={styles.navigation}>
+        <p>experience</p>
+        <p>showreel</p>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      {/* gallery */}
+      <div className={styles.gallery_wrapper}>
+        <div className={`${styles.gallery_container} ${styles.order}`}>
+          <div className={`${styles.img} ${styles.reorder}`}>
+            <img src={img1} alt="img" />
+          </div>
+          <div className={`${styles.img} ${styles.reorder}`}>
+            <img src={img2} alt="img" />
+          </div>
+          <div className={`${styles.img} ${styles.reorder}`}>
+            <img src={img3} alt="img" />
+          </div>
+          <div className={`${styles.img} ${styles.reorder}`}>
+            <img src={img4} alt="img" />
+          </div>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      {/* hero */}
+      <div className={styles.hero}>
+        <p>Near Future</p>
+        <p>embrace and explore the future of web and design</p>
+      </div>
+      {/* btn */}
+      <div className={styles.btn}>{btnContent}</div>
+      {/* footer */}
+      <div className={styles.footer}>
+        <p>English</p>
+        <p>View content</p>
+      </div>
+    </div>
+  );
+};
 
-export default App
+export default App;
