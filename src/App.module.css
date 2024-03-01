@@ -12,7 +12,7 @@
     width: 100%;
     position: absolute;
     text-align: center;
-    top: 45%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
@@ -94,7 +94,7 @@
     height: 325px;
 }
 
-.img.reorder:nth-child(1){
+/* .img.reorder:nth-child(1){
     transform: translate(-50%, -50%) rotate(10deg);
 }
 .img.reorder:nth-child(2){
@@ -105,4 +105,4 @@
 }
 .img.reorder:nth-child(4){
     transform: translate(-50%, -50%) rotate(-2deg);
-}
+} */
